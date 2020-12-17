@@ -122,7 +122,7 @@
         "named": true
       },
       {
-        "type": "break",
+        "type": "break_statement",
         "named": true
       },
       {
@@ -138,7 +138,7 @@
         "named": true
       },
       {
-        "type": "class",
+        "type": "class_decl",
         "named": true
       },
       {
@@ -150,7 +150,7 @@
         "named": true
       },
       {
-        "type": "for",
+        "type": "for_statement",
         "named": true
       },
       {
@@ -162,7 +162,7 @@
         "named": true
       },
       {
-        "type": "if",
+        "type": "if_statement",
         "named": true
       },
       {
@@ -170,7 +170,7 @@
         "named": true
       },
       {
-        "type": "lambda",
+        "type": "lambda_decl",
         "named": true
       },
       {
@@ -206,7 +206,7 @@
         "named": true
       },
       {
-        "type": "return",
+        "type": "return_statement",
         "named": true
       },
       {
@@ -250,11 +250,11 @@
         "named": true
       },
       {
-        "type": "while",
+        "type": "while_statement",
         "named": true
       },
       {
-        "type": "yield",
+        "type": "yield_statement",
         "named": true
       }
     ]
@@ -284,7 +284,7 @@
         "named": true
       },
       {
-        "type": "break",
+        "type": "break_statement",
         "named": true
       },
       {
@@ -312,7 +312,7 @@
         "named": true
       },
       {
-        "type": "return",
+        "type": "return_statement",
         "named": true
       },
       {
@@ -336,7 +336,7 @@
         "named": true
       },
       {
-        "type": "yield",
+        "type": "yield_statement",
         "named": true
       }
     ]
@@ -418,7 +418,7 @@
           "named": true
         },
         {
-          "type": "break",
+          "type": "break_statement",
           "named": true
         },
         {
@@ -438,7 +438,7 @@
           "named": true
         },
         {
-          "type": "return",
+          "type": "return_statement",
           "named": true
         },
         {
@@ -446,7 +446,7 @@
           "named": true
         },
         {
-          "type": "yield",
+          "type": "yield_statement",
           "named": true
         }
       ]
@@ -469,7 +469,7 @@
           "named": true
         },
         {
-          "type": "break",
+          "type": "break_statement",
           "named": true
         },
         {
@@ -489,7 +489,7 @@
           "named": true
         },
         {
-          "type": "return",
+          "type": "return_statement",
           "named": true
         },
         {
@@ -497,7 +497,7 @@
           "named": true
         },
         {
-          "type": "yield",
+          "type": "yield_statement",
           "named": true
         }
       ]
@@ -530,7 +530,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -542,7 +542,7 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
@@ -554,7 +554,7 @@
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -620,7 +620,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -670,7 +670,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -682,118 +682,12 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "!=",
-            "named": false
-          },
-          {
-            "type": "!~",
-            "named": false
-          },
-          {
-            "type": "%",
-            "named": false
-          },
-          {
-            "type": "&",
-            "named": false
-          },
-          {
-            "type": "&&",
-            "named": false
-          },
-          {
-            "type": "*",
-            "named": false
-          },
-          {
-            "type": "**",
-            "named": false
-          },
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "-",
-            "named": false
-          },
-          {
-            "type": "/",
-            "named": false
-          },
-          {
-            "type": "<",
-            "named": false
-          },
-          {
-            "type": "<<",
-            "named": false
-          },
-          {
-            "type": "<=",
-            "named": false
-          },
-          {
-            "type": "<=>",
-            "named": false
-          },
-          {
-            "type": "==",
-            "named": false
-          },
-          {
-            "type": "===",
-            "named": false
-          },
-          {
-            "type": "=~",
-            "named": false
-          },
-          {
-            "type": ">",
-            "named": false
-          },
-          {
-            "type": ">=",
-            "named": false
-          },
-          {
-            "type": ">>",
-            "named": false
-          },
-          {
-            "type": "^",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "or",
-            "named": false
-          },
-          {
-            "type": "|",
-            "named": false
-          },
-          {
-            "type": "||",
-            "named": false
           }
         ]
       },
@@ -806,7 +700,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -818,11 +712,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -930,7 +824,7 @@
     }
   },
   {
-    "type": "break",
+    "type": "break_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -1014,6 +908,16 @@
     "type": "case",
     "named": true,
     "fields": {
+      "default": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "else_block",
+            "named": true
+          }
+        ]
+      },
       "value": {
         "multiple": false,
         "required": false,
@@ -1023,21 +927,17 @@
             "named": true
           }
         ]
+      },
+      "when": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "when",
+            "named": true
+          }
+        ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "else",
-          "named": true
-        },
-        {
-          "type": "when",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1056,7 +956,7 @@
     }
   },
   {
-    "type": "class",
+    "type": "class_decl",
     "named": true,
     "fields": {
       "name": {
@@ -1072,6 +972,16 @@
             "named": true
           }
         ]
+      },
+      "superclass": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "superclass",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
@@ -1083,7 +993,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -1096,10 +1006,6 @@
         },
         {
           "type": "rescue",
-          "named": true
-        },
-        {
-          "type": "superclass",
           "named": true
         }
       ]
@@ -1204,25 +1110,6 @@
     }
   },
   {
-    "type": "do",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "_statement",
-          "named": true
-        },
-        {
-          "type": "empty_statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "do_block",
     "named": true,
     "fields": {
@@ -1246,7 +1133,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -1259,6 +1146,25 @@
         },
         {
           "type": "rescue",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_statement",
+          "named": true
+        },
+        {
+          "type": "empty_statement",
           "named": true
         }
       ]
@@ -1292,7 +1198,7 @@
           "named": true
         },
         {
-          "type": "break",
+          "type": "break_statement",
           "named": true
         },
         {
@@ -1312,7 +1218,7 @@
           "named": true
         },
         {
-          "type": "return",
+          "type": "return_statement",
           "named": true
         },
         {
@@ -1320,14 +1226,14 @@
           "named": true
         },
         {
-          "type": "yield",
+          "type": "yield_statement",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "else",
+    "type": "else_block",
     "named": true,
     "fields": {},
     "children": {
@@ -1354,7 +1260,7 @@
         "required": false,
         "types": [
           {
-            "type": "else",
+            "type": "else_block",
             "named": true
           },
           {
@@ -1463,7 +1369,7 @@
     }
   },
   {
-    "type": "for",
+    "type": "for_statement",
     "named": true,
     "fields": {
       "body": {
@@ -1471,7 +1377,7 @@
         "required": true,
         "types": [
           {
-            "type": "do",
+            "type": "do_statement",
             "named": true
           }
         ]
@@ -1499,7 +1405,7 @@
         "required": true,
         "types": [
           {
-            "type": "in",
+            "type": "in_statement",
             "named": true
           }
         ]
@@ -1557,34 +1463,53 @@
     }
   },
   {
-    "type": "heredoc_body",
+    "type": "if_modifier",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "escape_sequence",
-          "named": true
-        },
-        {
-          "type": "heredoc_content",
-          "named": true
-        },
-        {
-          "type": "heredoc_end",
-          "named": true
-        },
-        {
-          "type": "interpolation",
-          "named": true
-        }
-      ]
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_arg",
+            "named": true
+          },
+          {
+            "type": "break_statement",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "next",
+            "named": true
+          },
+          {
+            "type": "return_statement",
+            "named": true
+          },
+          {
+            "type": "yield_statement",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
-    "type": "if",
+    "type": "if_statement",
     "named": true,
     "fields": {
       "alternative": {
@@ -1592,7 +1517,7 @@
         "required": false,
         "types": [
           {
-            "type": "else",
+            "type": "else_block",
             "named": true
           },
           {
@@ -1624,53 +1549,7 @@
     }
   },
   {
-    "type": "if_modifier",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_statement",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_arg",
-            "named": true
-          },
-          {
-            "type": "break",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "next",
-            "named": true
-          },
-          {
-            "type": "return",
-            "named": true
-          },
-          {
-            "type": "yield",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "in",
+    "type": "in_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -1726,7 +1605,7 @@
     }
   },
   {
-    "type": "lambda",
+    "type": "lambda_decl",
     "named": true,
     "fields": {
       "body": {
@@ -1851,7 +1730,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -1936,7 +1815,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -1988,64 +1867,6 @@
           }
         ]
       },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "%=",
-            "named": false
-          },
-          {
-            "type": "&&=",
-            "named": false
-          },
-          {
-            "type": "&=",
-            "named": false
-          },
-          {
-            "type": "**=",
-            "named": false
-          },
-          {
-            "type": "*=",
-            "named": false
-          },
-          {
-            "type": "+=",
-            "named": false
-          },
-          {
-            "type": "-=",
-            "named": false
-          },
-          {
-            "type": "/=",
-            "named": false
-          },
-          {
-            "type": "<<=",
-            "named": false
-          },
-          {
-            "type": ">>=",
-            "named": false
-          },
-          {
-            "type": "^=",
-            "named": false
-          },
-          {
-            "type": "|=",
-            "named": false
-          },
-          {
-            "type": "||=",
-            "named": false
-          }
-        ]
-      },
       "right": {
         "multiple": false,
         "required": true,
@@ -2055,7 +1876,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -2067,11 +1888,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -2330,7 +2151,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -2342,11 +2163,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -2384,7 +2205,7 @@
     }
   },
   {
-    "type": "return",
+    "type": "return_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -2487,7 +2308,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -2553,7 +2374,7 @@
           "named": true
         },
         {
-          "type": "else",
+          "type": "else_block",
           "named": true
         },
         {
@@ -2676,7 +2497,7 @@
           "named": true
         },
         {
-          "type": "break",
+          "type": "break_statement",
           "named": true
         },
         {
@@ -2688,11 +2509,11 @@
           "named": true
         },
         {
-          "type": "return",
+          "type": "return_statement",
           "named": true
         },
         {
-          "type": "yield",
+          "type": "yield_statement",
           "named": true
         }
       ]
@@ -2768,7 +2589,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -2792,42 +2613,12 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "!",
-            "named": false
-          },
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "-",
-            "named": false
-          },
-          {
-            "type": "defined?",
-            "named": false
-          },
-          {
-            "type": "not",
-            "named": false
-          },
-          {
-            "type": "~",
-            "named": false
           }
         ]
       }
@@ -2857,7 +2648,7 @@
         "required": false,
         "types": [
           {
-            "type": "else",
+            "type": "else_block",
             "named": true
           },
           {
@@ -2911,7 +2702,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -2923,11 +2714,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -2943,7 +2734,7 @@
         "required": true,
         "types": [
           {
-            "type": "do",
+            "type": "do_statement",
             "named": true
           }
         ]
@@ -2983,7 +2774,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -2995,11 +2786,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -3033,32 +2824,6 @@
     }
   },
   {
-    "type": "while",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "do",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_statement",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "while_modifier",
     "named": true,
     "fields": {
@@ -3081,7 +2846,7 @@
             "named": true
           },
           {
-            "type": "break",
+            "type": "break_statement",
             "named": true
           },
           {
@@ -3093,11 +2858,11 @@
             "named": true
           },
           {
-            "type": "return",
+            "type": "return_statement",
             "named": true
           },
           {
-            "type": "yield",
+            "type": "yield_statement",
             "named": true
           }
         ]
@@ -3105,7 +2870,33 @@
     }
   },
   {
-    "type": "yield",
+    "type": "while_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "do_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "yield_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -3397,10 +3188,6 @@
   },
   {
     "type": "class_variable",
-    "named": true
-  },
-  {
-    "type": "comment",
     "named": true
   },
   {

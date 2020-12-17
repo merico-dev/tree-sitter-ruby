@@ -322,11 +322,11 @@ end
 ---
 
 (program
-  (class (constant))
-  (class (constant))
-  (class (scope_resolution (constant) (constant)))
-  (class (scope_resolution (scope_resolution (constant)) (constant)))
-  (class (constant)))
+  (class_decl (constant))
+  (class_decl (constant))
+  (class_decl (scope_resolution (constant) (constant)))
+  (class_decl (scope_resolution (scope_resolution (constant)) (constant)))
+  (class_decl (constant)))
 
 ==============
 empty subclass
@@ -337,7 +337,7 @@ end
 
 ---
 
-(program (class (constant) (superclass (constant))))
+(program (class_decl (constant) (superclass (constant))))
 
 ==================================
 empty subclass of namespaced class
@@ -355,13 +355,13 @@ end
 ---
 
 (program
-  (class
+  (class_decl
     (constant)
     (superclass (scope_resolution (constant) (constant))))
-  (class
+  (class_decl
     (constant)
     (superclass (scope_resolution (constant))))
-  (class
+  (class_decl
     (constant)
     (superclass (call (scope_resolution (constant) (constant)) (identifier) (argument_list (identifier))))))
 
@@ -376,9 +376,9 @@ end
 
 ---
 
-(program (class
+(program (class_decl
   name: (constant)
-  (superclass (call
+  superclass: (superclass (call
     receiver: (constant)
     method: (identifier)
     arguments: (argument_list
@@ -396,7 +396,7 @@ end
 
 ---
 
-(program (class (constant) (method (identifier))))
+(program (class_decl (constant) (method (identifier))))
 
 =========================================
 class within dynamically-computed module
@@ -407,7 +407,7 @@ end
 
 ---
 
-(program (class (scope_resolution (call (identifier) (argument_list)) (constant))))
+(program (class_decl (scope_resolution (call (identifier) (argument_list)) (constant))))
 
 ===============
 singleton class
@@ -511,7 +511,7 @@ end
 ---
 
 (program (module (constant)
-  (class (constant) (superclass (constant))
+  (class_decl (constant) (superclass (constant))
     (call (identifier) (argument_list
       (call
         (call
