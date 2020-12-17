@@ -205,10 +205,10 @@ module.exports = grammar({
       field('value', $._arg)
     )),
 
-    class: $ => seq(
+    class_decl: $ => seq(
       'class',
       field('name', choice($.constant, $.scope_resolution)),
-      optional($.superclass),
+      field('superclass', optional($.superclass)),
       $._terminator,
       $._body_statement
     ),
@@ -236,9 +236,9 @@ module.exports = grammar({
     yield_command: $ => prec.left(seq('yield', alias($.command_argument_list, $.argument_list))),
     break_command: $ => prec.left(seq('break', alias($.command_argument_list, $.argument_list))),
     next_command: $ => prec.left(seq('next', alias($.command_argument_list, $.argument_list))),
-    return: $ => prec.left(seq('return', optional($.argument_list))),
-    yield: $ => prec.left(seq('yield', optional($.argument_list))),
-    break: $ => prec.left(seq('break', optional($.argument_list))),
+    return_statement: $ => prec.left(seq('return', optional($.argument_list))),
+    yield_statement: $ => prec.left(seq('yield', optional($.argument_list))),
+    break_statement: $ => prec.left(seq('break', optional($.argument_list))),
     next: $ => prec.left(seq('next', optional($.argument_list))),
     redo: $ => prec.left(seq('redo', optional($.argument_list))),
     retry: $ => prec.left(seq('retry', optional($.argument_list))),
@@ -273,31 +273,31 @@ module.exports = grammar({
       field('handler', $._expression)
     )),
 
-    while: $ => seq(
+    while_statement: $ => seq(
       'while',
       field('condition', $._statement),
-      field('body', $.do)
+      field('body', $.do_statement)
     ),
 
     until: $ => seq(
       'until',
       field('condition', $._statement),
-      field('body', $.do)
+      field('body', $.do_statement)
     ),
 
-    for: $ => seq(
+    for_statement: $ => seq(
       'for',
       commaSep1(field('pattern', choice(
         $._lhs,
         $.rest_assignment,
         $.destructured_left_assignment
       ))),
-      field('value', $.in),
-      field('body', $.do)
+      field('value', $.in_statement),
+      field('body', $.do_statement)
     ),
 
-    in: $ => seq('in', $._arg),
-    do: $ => seq(
+    in_statement: $ => seq('in', $._arg),
+    do_statement: $ => seq(
       choice('do', $._terminator),
       optional($._statements),
       'end'
@@ -307,8 +307,8 @@ module.exports = grammar({
       'case',
       field('value', optional($._statement)),
       optional($._terminator),
-      repeat($.when),
-      optional($.else),
+      field('when', repeat($.when)),
+      field('default', optional($.else_block)),
       'end'
     ),
 
@@ -320,11 +320,11 @@ module.exports = grammar({
 
     pattern: $ => choice($._arg, $.splat_argument),
 
-    if: $ => seq(
+    if_statement: $ => seq(
       'if',
       field('condition', $._statement),
       choice($._terminator, field('consequence', $.then)),
-      field('alternative', optional(choice($.else, $.elsif))),
+      field('alternative', optional(choice($.else_block, $.elsif))),
       'end'
     ),
 
@@ -332,7 +332,7 @@ module.exports = grammar({
       'unless',
       field('condition', $._statement),
       choice($._terminator, field('consequence', $.then)),
-      field('alternative', optional(choice($.else, $.elsif))),
+      field('alternative', optional(choice($.else_block, $.elsif))),
       'end'
     ),
 
@@ -340,10 +340,10 @@ module.exports = grammar({
       'elsif',
       field('condition', $._statement),
       choice($._terminator, field('consequence', $.then)),
-      field('alternative', optional(choice($.else, $.elsif)))
+      field('alternative', optional(choice($.else_block, $.elsif)))
     ),
 
-    else: $ => seq(
+    else_block: $ => seq(
       'else',
       optional($._terminator),
       optional($._statements)
@@ -381,7 +381,7 @@ module.exports = grammar({
 
     _body_statement: $ => seq(
       optional($._statements),
-      repeat(choice($.rescue, $.else, $.ensure)),
+      repeat(choice($.rescue, $.else_block, $.ensure)),
       'end'
     ),
 
@@ -408,9 +408,9 @@ module.exports = grammar({
       alias($.command_call, $.call),
       alias($.command_call_with_block, $.call),
       prec.left(alias($._chained_command_call, $.call)),
-      alias($.return_command, $.return),
-      alias($.yield_command, $.yield),
-      alias($.break_command, $.break),
+      alias($.return_command, $.return_statement),
+      alias($.yield_command, $.yield_statement),
+      alias($.break_command, $.break_statement),
       alias($.next_command, $.next),
       $._arg
     ),
@@ -442,22 +442,22 @@ module.exports = grammar({
       $.character,
       $.chained_string,
       $.regex,
-      $.lambda,
+      $.lambda_decl,
       $.method,
       $.singleton_method,
-      $.class,
+      $.class_decl,
       $.singleton_class,
       $.module,
       $.begin,
-      $.while,
+      $.while_statement,
       $.until,
-      $.if,
+      $.if_statement,
       $.unless,
-      $.for,
+      $.for_statement,
       $.case,
-      $.return,
-      $.yield,
-      $.break,
+      $.return_statement,
+      $.yield_statement,
+      $.break_statement,
       $.next,
       $.redo,
       $.retry,
@@ -605,13 +605,13 @@ module.exports = grammar({
 
     operator_assignment: $ => prec.right(PREC.ASSIGN, seq(
       field('left', $._lhs),
-      field('operator', choice('+=', '-=', '*=', '**=', '/=', '||=', '|=', '&&=', '&=', '%=', '>>=', '<<=', '^=')),
+      choice('+=', '-=', '*=', '**=', '/=', '||=', '|=', '&&=', '&=', '%=', '>>=', '<<=', '^='),
       field('right', $._arg)
     )),
 
     command_operator_assignment: $ => prec.right(PREC.ASSIGN, seq(
       field('left', $._lhs),
-      field('operator', choice('+=', '-=', '*=', '**=', '/=', '||=', '|=', '&&=', '&=', '%=', '>>=', '<<=', '^=')),
+      choice('+=', '-=', '*=', '**=', '/=', '||=', '|=', '&&=', '&=', '%=', '>>=', '<<=', '^='),
       field('right', $._expression)
     )),
 
@@ -647,14 +647,14 @@ module.exports = grammar({
 
       return choice(...operators.map(([fn, precedence, operator]) => fn(precedence, seq(
         field('left', $._arg),
-        field('operator', operator),
+        operator,
         field('right', $._arg)
       ))));
     },
 
     command_binary: $ => prec.left(seq(
       field('left', $._expression),
-      field('operator', choice('or', 'and')),
+      choice('or', 'and'),
       field('right', $._expression)
     )),
 
@@ -666,7 +666,7 @@ module.exports = grammar({
         [prec.right, PREC.COMPLEMENT, choice('!', '~')]
       ];
       return choice(...operators.map(([fn, precedence, operator]) => fn(precedence, seq(
-        field('operator', operator),
+        operator,
         field('operand', $._arg)
       ))));
     },
@@ -679,18 +679,18 @@ module.exports = grammar({
         [prec.right, PREC.COMPLEMENT, choice('!', '~')]
       ];
       return choice(...operators.map(([fn, precedence, operator]) => fn(precedence, seq(
-        field('operator', operator),
+        operator,
         field('operand', $._expression)
       ))));
     },
 
     parenthesized_unary: $ => prec(PREC.CALL, seq(
-      field('operator', choice('defined?', 'not')),
+      choice('defined?', 'not'),
       field('operand', $.parenthesized_statements)
     )),
 
     unary_literal: $ => prec.right(PREC.UNARY_MINUS, seq(
-      field('operator', choice(alias($._unary_minus, '-'), '+')),
+      choice(alias($._unary_minus, '-'), '+'),
       field('operand', choice($.integer, $.float))
     )),
 
@@ -891,7 +891,7 @@ module.exports = grammar({
       )
     ),
 
-    lambda: $ => seq(
+    lambda_decl: $ => seq(
       '->',
       field('parameters', optional(choice(
         alias($.parameters, $.lambda_parameters),

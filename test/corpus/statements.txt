@@ -14,13 +14,13 @@ return nil if foo
     (identifier)
     (identifier))
   (if_modifier
-    (return)
+    (return_statement)
     (false))
   (if_modifier
-    (return (argument_list (true)))
+    (return_statement (argument_list (true)))
     (call (identifier) (argument_list (identifier))))
   (if_modifier
-    (return (argument_list (nil)))
+    (return_statement (argument_list (nil)))
     (identifier)))
 
 ==============

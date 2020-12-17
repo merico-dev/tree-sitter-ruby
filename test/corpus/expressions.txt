@@ -102,7 +102,7 @@ yield
 
 ---
 
-(program (yield))
+(program (yield_statement))
 
 =====
 yield
@@ -115,9 +115,9 @@ yield(baz)
 ---
 
 (program
-  (yield (argument_list (identifier)))
-  (yield (argument_list (identifier) (identifier)))
-  (yield (argument_list (identifier))))
+  (yield_statement (argument_list (identifier)))
+  (yield_statement (argument_list (identifier) (identifier)))
+  (yield_statement (argument_list (identifier))))
 
 ===
 not
@@ -363,7 +363,7 @@ foo ? return: false
 
 (program
   (conditional (identifier) (true) (false))
-  (conditional (identifier) (return) (false)))
+  (conditional (identifier) (return_statement) (false)))
 
 ===============
 inclusive range
@@ -957,11 +957,11 @@ foo :bar, -> (a) { where(:c => b) }
   (call (identifier)
     (argument_list
       (symbol)
-      (lambda (lambda_parameters (identifier)) (block (integer)))))
+      (lambda_decl (lambda_parameters (identifier)) (block (integer)))))
   (call (identifier)
     (argument_list
       (symbol)
-      (lambda
+      (lambda_decl
         (lambda_parameters (identifier))
         (block (call (identifier) (argument_list (pair (symbol) (identifier)))))))))
 
@@ -976,7 +976,7 @@ end
 
 (program
   (call (identifier)
-    (argument_list (symbol) (lambda (lambda_parameters (identifier)) (block (integer))))
+    (argument_list (symbol) (lambda_decl (lambda_parameters (identifier)) (block (integer))))
     (do_block)))
 
 ===============================================
@@ -1242,7 +1242,7 @@ end
 ---
 
 (program
-  (lambda
+  (lambda_decl
     (lambda_parameters (identifier) (splat_parameter (identifier)) (destructured_parameter (identifier) (identifier)))
     (block))
   (method (identifier)

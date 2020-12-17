@@ -7,9 +7,9 @@ end
 
 ---
 
-(program (while
+(program (while_statement
   condition: (identifier)
-  body: (do)))
+  body: (do_statement)))
 
 ================
 while without do
@@ -20,9 +20,9 @@ end
 
 ---
 
-(program (while
+(program (while_statement
   condition: (identifier)
-  body: (do)))
+  body: (do_statement)))
 
 =========================
 while statement with body
@@ -34,9 +34,9 @@ end
 
 ---
 
-(program (while
+(program (while_statement
   condition: (identifier)
-  body: (do (identifier))))
+  body: (do_statement (identifier))))
 
 =====================
 empty until statement
@@ -51,7 +51,7 @@ end
   condition: (call
     method: (identifier)
     arguments: (argument_list (identifier)))
-  body: (do)))
+  body: (do_statement)))
 
 =========================
 until statement with body
@@ -65,7 +65,7 @@ end
 
 (program (until
   (identifier)
-  (do (identifier))))
+  (do_statement (identifier))))
 
 ==================
 empty if statement
@@ -76,7 +76,7 @@ end
 
 ---
 
-(program (if
+(program (if_statement 
   condition: (identifier)))
 
 =======================
@@ -92,11 +92,11 @@ if true then ;; 123; end
 ---
 
 (program
-  (if
+  (if_statement 
     condition: (identifier)
     consequence: (then)
-    alternative: (else))
-  (if
+    alternative: (else_block))
+  (if_statement 
     condition: (true)
     consequence: (then
       (empty_statement)
@@ -111,7 +111,7 @@ if foo then bar else quux end
 
 ---
 
-(program (if (identifier) (then (identifier)) (else (identifier))))
+(program (if_statement  (identifier) (then (identifier)) (else_block (identifier))))
 
 ========
 if elsif
@@ -126,7 +126,7 @@ end
 ---
 
 (program
-  (if (identifier) (then (identifier))
+  (if_statement  (identifier) (then (identifier))
   (elsif (identifier) (then (identifier)))))
 
 =============
@@ -144,12 +144,12 @@ end
 ---
 
 (program
-  (if (identifier)
+  (if_statement  (identifier)
     (then (identifier))
     (elsif
       (identifier)
       (then (identifier))
-      (else (identifier)))))
+      (else_block (identifier)))))
 
 ======================
 empty unless statement
@@ -191,7 +191,7 @@ end
 (program
   (unless
     condition: (identifier)
-    alternative: (else)))
+    alternative: (else_block)))
 
 ===
 for
@@ -208,15 +208,15 @@ end
 ---
 
 (program
-  (for
+  (for_statement
     pattern: (identifier)
-    value: (in (identifier))
-    body: (do (identifier)))
-  (for
+    value: (in_statement (identifier))
+    body: (do_statement (identifier)))
+  (for_statement
     pattern: (identifier)
     pattern: (rest_assignment (identifier))
-    value: (in (identifier))
-    body: (do (identifier))))
+    value: (in_statement (identifier))
+    body: (do_statement (identifier))))
 
 ==============
 for without do
@@ -228,10 +228,10 @@ end
 
 ---
 
-(program (for
+(program (for_statement
   pattern: (identifier)
-  value: (in (identifier))
-  body: (do (identifier))))
+  value: (in_statement (identifier))
+  body: (do_statement (identifier))))
 
 ==============
 next
@@ -243,7 +243,7 @@ end
 
 ---
 
-(program (for (identifier) (in (identifier)) (do (next))))
+(program (for_statement (identifier) (in_statement (identifier)) (do_statement (next))))
 
 ==============
 retry
@@ -255,10 +255,10 @@ end
 
 ---
 
-(program (for
+(program (for_statement
   pattern: (identifier)
-  value: (in (identifier))
-  body: (do (retry))))
+  value: (in_statement (identifier))
+  body: (do_statement (retry))))
 
 ==============
 break
@@ -270,7 +270,7 @@ end
 
 ---
 
-(program (while (identifier) (do (break))))
+(program (while_statement (identifier) (do_statement (break_statement))))
 
 ==============
 redo
@@ -283,7 +283,7 @@ end
 ---
 
 
-(program (while (identifier) (do (redo))))
+(program (while_statement (identifier) (do_statement (redo))))
 
 ===========
 empty begin
@@ -322,7 +322,7 @@ end
 
 (program
   (begin (identifier)
-    (else (identifier))))
+    (else_block (identifier))))
 
 ===============
 begin with ensure
@@ -440,7 +440,7 @@ end
 
 (program
   (rescue_modifier (identifier) (nil))
-  (if (rescue_modifier (identifier) (nil)) (elsif (rescue_modifier (identifier) (nil))))
+  (if_statement  (rescue_modifier (identifier) (nil)) (elsif (rescue_modifier (identifier) (nil))))
   (unless (rescue_modifier (identifier) (nil))))
 
 ============================
@@ -462,7 +462,7 @@ end
 (program
   (begin (identifier)
     (rescue (exceptions (identifier)) (then (retry)))
-    (else (identifier))
+    (else_block (identifier))
     (ensure (identifier))))
 
 ======
@@ -473,7 +473,7 @@ return foo
 
 ---
 
-(program (return (argument_list (identifier))))
+(program (return_statement (argument_list (identifier))))
 
 ====================
 return without value
@@ -483,7 +483,7 @@ return
 
 ---
 
-(program (return))
+(program (return_statement))
 
 ====
 case
@@ -519,11 +519,11 @@ end
   (case
     (identifier)
     (when (pattern (identifier)))
-    (else))
+    (else_block))
   (case
     (identifier)
     (when (pattern (identifier)))
-    (else (identifier))))
+    (else_block (identifier))))
 
 ==============================
 case with multiple when blocks
@@ -544,7 +544,7 @@ end
   (case (identifier)
     (when (pattern (identifier)) (then (identifier)))
     (when (pattern (identifier)) (then (identifier)))
-    (else (identifier))))
+    (else_block (identifier))))
 
 
 ==============================
@@ -596,7 +596,7 @@ end
 (program (assignment (identifier)
   (case (identifier)
     (when (pattern (identifier)))
-    (else))))
+    (else_block))))
 
 ==============
 case with expression
@@ -612,4 +612,4 @@ end
 (program (assignment (identifier)
   (case (assignment (identifier) (binary (identifier) (identifier)))
     (when (pattern (identifier)))
-    (else))))
+    (else_block))))
